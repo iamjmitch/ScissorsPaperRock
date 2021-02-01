@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Scissors Paper Rock`,
+    description: `Simple Scissors Paper Rock Game`,
+    author: `@iamjmitch`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-  [`gatsby-plugin-styled-components`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -14,6 +14,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Barlow Semi Condensed\:600,700`],
+        display: "swap",
+      },
+    },
+    `gatsby-plugin-react-svg`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
