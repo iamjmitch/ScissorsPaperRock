@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import GlobalStyle from "../styles/globalStyles"
 
@@ -19,12 +19,22 @@ const Background = styled.div`
 `
 
 const Main = props => {
+  const [showModal, setShowModal] = useState(false)
+
+  const handleShowRules = () => {
+    console.log("running")
+    if (showModal) {
+      setShowModal(false)
+    } else {
+      setShowModal(true)
+    }
+  }
   return (
     <Background {...props}>
       <GlobalStyle />
       <Header />
-      <Button />
-      <Modal />
+      <Button toggle={handleShowRules} />
+      <Modal show={showModal} toggle={handleShowRules} />
     </Background>
   )
 }

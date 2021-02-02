@@ -20,8 +20,8 @@ const StyledButton = styled.div`
   }
 `
 
-const Button = () => {
-  return <StyledButton>RULES</StyledButton>
+const Button = props => {
+  return <StyledButton onClick={props.toggle}>RULES</StyledButton>
 }
 
 export default Button

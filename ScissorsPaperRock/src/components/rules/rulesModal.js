@@ -54,7 +54,7 @@ const Modal = props => {
       <StyledModal>
         <StyledDiv>
           RULES
-          <Close />
+          <Close onClick={props.toggle} />
         </StyledDiv>
         <RulesImage />
       </StyledModal>
