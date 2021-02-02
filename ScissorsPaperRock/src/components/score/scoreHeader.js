@@ -22,7 +22,6 @@ const StyledHeader = styled.div`
 `
 
 const Header = () => {
-  console.log(colors)
   return (
     <StyledHeader outline={colors.headerOutline}>
       <Logo />

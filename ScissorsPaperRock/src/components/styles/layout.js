@@ -22,7 +22,6 @@ const Main = props => {
   const [showModal, setShowModal] = useState(false)
 
   const handleShowRules = () => {
-    console.log("running")
     if (showModal) {
       setShowModal(false)
     } else {

@@ -50,7 +50,13 @@ const StyledDiv = styled.div`
 
 const Modal = props => {
   return (
-    <BG show={props.show}>
+    <BG
+      id="back"
+      show={props.show}
+      onClick={e =>
+        e.target.id === "back" ? props.toggle() : console.log(e.target.id)
+      }
+    >
       <StyledModal>
         <StyledDiv>
           RULES
