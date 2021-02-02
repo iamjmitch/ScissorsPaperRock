@@ -1,0 +1,65 @@
+import React from "react"
+import styled from "styled-components"
+import { colors } from "../styles/colors"
+import { typography } from "../styles/typography"
+import RulesImage from "../../images/image-rules.svg"
+import Close from "../../images/icon-close.svg"
+
+const BG = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: #000000bf;
+  position: absolute;
+  display: ${props => (props.show ? "block" : "none")};
+`
+
+const StyledModal = styled.div`
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 29px 30px;
+
+  border-radius: 10px;
+  svg {
+    margin: 30px 18px 0 18px;
+  }
+`
+const StyledDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: ${typography.font};
+  color: ${colors.darkText};
+  font-size: 32px;
+  font-weight: ${typography.weightBold};
+  padding-bottom: 15px;
+  margin: 0 1px;
+  letter-spacing: -0.1px;
+  svg {
+    margin: 0;
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover path {
+      fill: black;
+    }
+  }
+`
+
+const Modal = props => {
+  return (
+    <BG show={props.show}>
+      <StyledModal>
+        <StyledDiv>
+          RULES
+          <Close />
+        </StyledDiv>
+        <RulesImage />
+      </StyledModal>
+    </BG>
+  )
+}
+
+export default Modal

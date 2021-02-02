@@ -17,7 +17,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Barlow Semi Condensed\:600,700`],
+        fonts: [`Barlow+Semi+Condensed\:600,700`],
         display: "swap",
       },
     },
