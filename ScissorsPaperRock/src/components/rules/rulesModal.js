@@ -53,6 +53,7 @@ const Modal = props => {
     <BG
       id="back"
       show={props.show}
+      //if user clicks on dark background, the modal will hide. wont hide when clicking on the white area
       onClick={e =>
         e.target.id === "back" ? props.toggle() : console.log(e.target.id)
       }
