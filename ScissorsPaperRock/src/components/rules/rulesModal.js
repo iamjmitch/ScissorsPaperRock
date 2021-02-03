@@ -8,7 +8,7 @@ import Close from "../../images/icon-close.svg"
 const BG = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #000000bf;
+  background: #0000009e;
   position: absolute;
   display: ${props => (props.show ? "block" : "none")};
 `
@@ -21,7 +21,7 @@ const StyledModal = styled.div`
   transform: translate(-50%, -50%);
   padding: 29px 30px;
 
-  border-radius: 10px;
+  border-radius: 8px;
   svg {
     margin: 30px 18px 0 18px;
   }

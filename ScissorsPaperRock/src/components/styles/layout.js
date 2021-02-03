@@ -5,6 +5,7 @@ import GlobalStyle from "../styles/globalStyles"
 import Header from "../score/scoreHeader"
 import Button from "../rules/rulesButton"
 import Modal from "../rules/rulesModal"
+import GameContainer from "../game/gameMain"
 
 const Background = styled.div`
   position: relative;
@@ -14,6 +15,7 @@ const Background = styled.div`
     rgba(20, 21, 48, 1) 100%
   );
   display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
 `
@@ -21,6 +23,7 @@ const Background = styled.div`
 const Main = props => {
   const [showModal, setShowModal] = useState(false)
 
+  //handles visability of rules modal
   const handleShowRules = () => {
     if (showModal) {
       setShowModal(false)
@@ -32,6 +35,7 @@ const Main = props => {
     <Background {...props}>
       <GlobalStyle />
       <Header />
+      <GameContainer />
       <Button toggle={handleShowRules} />
       <Modal show={showModal} toggle={handleShowRules} />
     </Background>
