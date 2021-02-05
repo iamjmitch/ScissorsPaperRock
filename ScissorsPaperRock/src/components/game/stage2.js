@@ -70,14 +70,12 @@ const Stage2 = props => {
   }, [userSelected])
 
   useEffect(() => {
-    console.log(userSelected, computerSelected)
-    setEndResult(`${scoreHandler(userSelected.name, computerSelected.name)}`)
+    scoreHandler(userSelected.name, computerSelected.name)
   }, [userSelected, computerSelected])
 
+  const scoreHandler = (user, comp) => {
     if (userSelected != "" && typeof comp !== "undefined") {
       var result = winnerChecker(user, comp)
-      console.log(result)
-
       switch (result) {
         case "win":
           props.increase()
@@ -85,13 +83,13 @@ const Stage2 = props => {
           setEndResult("You Win")
           break
         case "loose":
-            setEndResult("You Loose")
+          setEndResult("You Loose")
           break
         case "draw":
-            setEndResult("Its A Draw")
+          setEndResult("Its A Draw")
           break
         default:
-            setEndResult("something fucked up")
+          setEndResult("something fucked up")
           break
       }
     }
