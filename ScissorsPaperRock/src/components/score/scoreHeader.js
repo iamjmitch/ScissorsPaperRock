@@ -19,13 +19,14 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   border: 4px solid ${props => `${props.outline}`};
   border-radius: 20px;
+  margin-bottom: 50px;
 `
 
-const Header = () => {
+const Header = props => {
   return (
     <StyledHeader outline={colors.headerOutline}>
       <Logo />
-      <StyledScoreboard />
+      <StyledScoreboard score={props.score} />
     </StyledHeader>
   )
 }

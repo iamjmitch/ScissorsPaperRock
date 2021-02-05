@@ -31,11 +31,11 @@ const StyledScore = styled.h2`
   line-height: 70px;
 `
 
-const Scoreboard = () => {
+const Scoreboard = props => {
   return (
     <StyledScoreboard>
       <StyledScoreHeading>SCORE</StyledScoreHeading>
-      <StyledScore>12</StyledScore>
+      <StyledScore>{props.score}</StyledScore>
     </StyledScoreboard>
   )
 }

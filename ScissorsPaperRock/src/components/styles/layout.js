@@ -5,7 +5,8 @@ import GlobalStyle from "../styles/globalStyles"
 import Header from "../score/scoreHeader"
 import Button from "../rules/rulesButton"
 import Modal from "../rules/rulesModal"
-import GameContainer from "../game/gameMain"
+import Stage1 from "../game/stage1"
+import Stage2 from "../game/stage2"
 
 const Background = styled.div`
   position: relative;
@@ -17,11 +18,46 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+`
+
+const StyledContainer = styled.div`
+  width: 1366px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 `
 
 const Main = props => {
+  //modal popup controller
   const [showModal, setShowModal] = useState(false)
+  //score keeper
+  const [score, setScore] = useState(0)
+  //has the user made a section
+  const [userSelectionMade, setUserSelectionMade] = useState(false)
+  //users selection
+  const [userSelection, setUserSelection] = useState("")
+  //computers selection
+  const [computerSelection, setComputerSelection] = useState("")
+
+  //handles the users selection and save name of their choice to state
+  const userSelectionHandler = selection => {
+    setUserSelection(selection)
+    setUserSelectionMade(true)
+  }
+
+  // increases player score apon winning
+  const increaseScore = () => {
+    setScore(score + 1)
+  }
+
+  //toggles states to restart game. does not clear score
+  const playAgain = () => {
+    setUserSelectionMade(false)
+    setUserSelection("")
+    setComputerSelection("")
+  }
 
   //handles visability of rules modal
   const handleShowRules = () => {
@@ -34,8 +70,19 @@ const Main = props => {
   return (
     <Background {...props}>
       <GlobalStyle />
-      <Header />
-      <GameContainer />
+      <StyledContainer>
+        <Header score={score} />
+        {userSelectionMade === false && (
+          <Stage1 handler={userSelectionHandler} />
+        )}
+        {userSelectionMade === true && (
+          <Stage2
+            userSelection={userSelection}
+            computerSelection={computerSelection}
+            increase={increaseScore}
+          />
+        )}
+      </StyledContainer>
       <Button toggle={handleShowRules} />
       <Modal show={showModal} toggle={handleShowRules} />
     </Background>
