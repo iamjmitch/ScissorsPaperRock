@@ -33,7 +33,7 @@ function SEO({ description, lang, meta, title }) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title="Scissors Paper Rock Game | iamjmitch"
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
