@@ -9,6 +9,7 @@ import Button from "../rules/rulesButton"
 import Modal from "../rules/rulesModal"
 import Stage1 from "../game/stage1"
 import Stage2 from "../game/stage2"
+import SEO from "../seo"
 
 const Background = styled.div`
   position: relative;
@@ -72,6 +73,7 @@ const Main = props => {
   return (
     <Background {...props}>
       <GlobalStyle />
+      <SEO />
       <StyledContainer>
         <Header score={score} />
         {userSelectionMade === false && (
