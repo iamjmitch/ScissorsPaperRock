@@ -54,6 +54,12 @@ const Main = props => {
   const increaseScore = () => {
     setScore(score + 1)
   }
+  // decreases player score apon losing
+  const decreaseScore = () => {
+    if (score > 0) {
+      setScore(score - 1)
+    }
+  }
 
   //toggles states to restart game. does not clear score
   const playAgain = () => {
@@ -84,6 +90,7 @@ const Main = props => {
             userSelection={userSelection}
             computerSelection={computerSelection}
             increase={increaseScore}
+            decrease={decreaseScore}
             reset={playAgain}
           />
         )}

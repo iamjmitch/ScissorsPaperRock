@@ -91,6 +91,7 @@ const Stage2 = props => {
           break
         case "loose":
           setEndResult("You lose")
+          props.decrease()
           break
         case "draw":
           setEndResult("It's a tie")
