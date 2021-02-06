@@ -1,9 +1,15 @@
+//dependancies
 import React from "react"
 import styled from "styled-components"
 
-import StyledScoreboard from "../score/scoreBox"
-import Logo from "../../images/logo.svg"
+//styles
 import { colors } from "../styles/colors"
+
+//assets
+import Logo from "../../images/logo.svg"
+
+//components
+import StyledScoreboard from "../score/scoreBox"
 
 const StyledHeader = styled.div`
   width: 90%;

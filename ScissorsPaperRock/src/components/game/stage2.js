@@ -1,10 +1,16 @@
+//dependancies
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import Triangle from "../../images/bg-triangle.svg"
-import Token from "./gameToken"
+
+//styles
 import { typography } from "../styles/typography"
 import { colors } from "../styles/colors"
 
+//components
+import Token from "./gameToken"
+import EndGame from "./endGameHandle"
+
+//functions and data
 import { tokenData } from "../data/tokenData"
 import winnerChecker from "./winnerChecker"
 
@@ -13,7 +19,8 @@ const StyledGameContainer = styled.div`
   align-self: center;
   padding-top: 50px;
   width: 90%;
-  max-width: 800px;
+  max-width: ${props => (props.gameOver ? "100%" : "800px")};
+  transiton: max-width 3s linear;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -52,6 +59,7 @@ const Stage2 = props => {
   const [userSelected, setUserSelected] = useState("")
   const [computerSelected, setComputerSelected] = useState("")
   const [endResult, setEndResult] = useState("working")
+  const [gameOver, setGameOver] = useState(false)
 
   useEffect(() => {
     if (userSelected === "") {
@@ -79,24 +87,24 @@ const Stage2 = props => {
       switch (result) {
         case "win":
           props.increase()
-
-          setEndResult("You Win")
+          setEndResult("You win")
           break
         case "loose":
-          setEndResult("You Loose")
+          setEndResult("You lose")
           break
         case "draw":
-          setEndResult("Its A Draw")
+          setEndResult("It's a tie")
           break
         default:
-          setEndResult("something fucked up")
+          console.log("An error has occured")
           break
       }
     }
+    setGameOver(true)
   }
 
   return (
-    <StyledGameContainer>
+    <StyledGameContainer gameOver={gameOver}>
       <UserSelection>
         <h3>{`YOU PICK ${props.userSelection}`}</h3>
         <Token
@@ -107,7 +115,7 @@ const Stage2 = props => {
           clickable="no"
         />
       </UserSelection>
-      {endResult}
+      <EndGame gameOver={gameOver} reset={props.reset} endResult={endResult} />
       <ComputerSelection>
         <h3>{`THE HOUSE PICKED ${computerSelected.name}`}</h3>
         <Token

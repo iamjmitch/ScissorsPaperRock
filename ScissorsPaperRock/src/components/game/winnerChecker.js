@@ -1,4 +1,6 @@
+//dependancies
 import React from "react"
+
 const winnerChecker = (player, computer) => {
   if (typeof computer !== "undefined") {
     switch (player) {

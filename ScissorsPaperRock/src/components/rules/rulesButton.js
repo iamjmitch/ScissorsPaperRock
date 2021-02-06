@@ -1,5 +1,8 @@
+//dependancies
 import React from "react"
 import styled from "styled-components"
+
+//styles
 import { colors } from "../styles/colors"
 import { typography } from "../styles/typography"
 

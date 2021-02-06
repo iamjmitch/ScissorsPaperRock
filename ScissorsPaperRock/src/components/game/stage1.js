@@ -1,8 +1,14 @@
+//dependancies
 import React, { useState } from "react"
 import styled from "styled-components"
+
+//assets
 import Triangle from "../../images/bg-triangle.svg"
+
+//components
 import Token from "./gameToken"
 
+//functions and data
 import { tokenData } from "../data/tokenData"
 
 const StyledGameContainer = styled.div`

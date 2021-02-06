@@ -1,7 +1,9 @@
+//dependancies
 import React, { useState } from "react"
 import styled from "styled-components"
 import GlobalStyle from "../styles/globalStyles"
 
+//components
 import Header from "../score/scoreHeader"
 import Button from "../rules/rulesButton"
 import Modal from "../rules/rulesModal"
@@ -80,6 +82,7 @@ const Main = props => {
             userSelection={userSelection}
             computerSelection={computerSelection}
             increase={increaseScore}
+            reset={playAgain}
           />
         )}
       </StyledContainer>
