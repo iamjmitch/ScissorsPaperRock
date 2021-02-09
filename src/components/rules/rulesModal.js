@@ -17,6 +17,16 @@ const BG = styled.div`
   position: absolute;
   display: ${props => (props.show ? "block" : "none")};
   z-index: 1000;
+  @keyframes showModal {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  animation-name: showModal;
+  animation-duration: 0.5s;
 `
 
 const StyledModal = styled.div`
