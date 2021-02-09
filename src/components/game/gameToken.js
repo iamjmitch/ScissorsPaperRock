@@ -8,7 +8,19 @@ import { colors } from "../styles/colors"
 const StyledToken = styled.div`
   z-index: 100;
   transition: 0.5s linear;
+  @keyframes showToken {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  animation-name: showToken;
+  animation-duration: 0.9s;
 `
+const winGlowSettings =
+  " 0px 0px 0px 40px #ffffff04, 0px 0px 0px 80px #ffffff04, 0px 0px 0px 130px #ffffff04;"
 
 const StyledOutter = styled.div`
   display: flex;
@@ -18,7 +30,11 @@ const StyledOutter = styled.div`
   width: 225px;
   height: 225px;
   border-radius: 50%;
-  box-shadow: ${props => props.shadow};
+
+  box-shadow: ${props =>
+    props.winGlow === true && props.thinking === false
+      ? props => `${props.shadow}, ${winGlowSettings}`
+      : props => props.shadow};
   &:hover {
     cursor: ${props => (props.clickable === "yes" ? "pointer" : "auto")};
   }
@@ -40,7 +56,7 @@ const StyledInner = styled.div`
 
 const Token = props => {
   return (
-    <StyledToken>
+    <StyledToken thinking={props.thinking} player={props.player}>
       <StyledOutter
         gradient={props.gradient}
         shadow={props.shadow}
@@ -48,6 +64,8 @@ const Token = props => {
         onClick={() =>
           props.clickable === "yes" ? props.handler(props.name) : null
         }
+        winGlow={props.winGlow}
+        thinking={props.thinking}
       >
         <StyledInner>
           <img src={props.image} />

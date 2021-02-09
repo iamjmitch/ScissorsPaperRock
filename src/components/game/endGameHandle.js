@@ -22,13 +22,32 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @keyframes showEnd {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 30%;
+    }
+  }
+  animation-name: showEnd;
+  animation-duration: 0.9s;
+
+  overflow: hidden;
 `
 
 const EndGame = props => {
+  const [showS, setShowS] = useState(false)
+
+  const handleShow = () => {
+    setTimeout(() => setShowS(true), 1200)
+  }
+
+  useEffect(() => handleShow(), [])
   return (
     <StyledDiv>
-      <h5>{props.endResult}</h5>
-      {props.gameOver === true && <Button reset={props.reset} />}
+      {showS && <h5>{props.endResult}</h5>}
+      {showS && props.gameOver === true && <Button reset={props.reset} />}
     </StyledDiv>
   )
 }
