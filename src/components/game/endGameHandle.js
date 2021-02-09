@@ -32,15 +32,26 @@ const StyledDiv = styled.div`
   }
   animation-name: showEnd;
   animation-duration: 0.9s;
-
   overflow: hidden;
+  h5 {
+    @keyframes showResult {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    animation-name: showResult;
+    animation-duration: 0.2s;
+  }
 `
 
 const EndGame = props => {
   const [showS, setShowS] = useState(false)
 
   const handleShow = () => {
-    setTimeout(() => setShowS(true), 1200)
+    setTimeout(() => setShowS(true), 900)
   }
 
   useEffect(() => handleShow(), [])
