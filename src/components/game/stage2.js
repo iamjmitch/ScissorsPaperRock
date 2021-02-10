@@ -93,13 +93,13 @@ const Stage2 = ({ userSelection, increase, decrease, reset }) => {
   useEffect(() => {
     if (userSelected === "") {
       for (var i = 0; i < tokenData.length; i++) {
-        if (tokenData[i].name == userSelection) {
+        if (tokenData[i].name === userSelection) {
           setUserSelected(tokenData[i])
         }
       }
     }
     //will randomly select an object from the token data array as the computers choice
-    if (userSelected != "") {
+    if (userSelected !== "") {
       setComputerSelected(
         tokenData[Math.floor(Math.random() * tokenData.length)]
       )
@@ -115,7 +115,7 @@ const Stage2 = ({ userSelection, increase, decrease, reset }) => {
   }, [userSelected, computerSelected])
 
   const scoreHandler = (user, comp) => {
-    if (userSelected != "" && typeof comp !== "undefined") {
+    if (userSelected !== "" && typeof comp !== "undefined") {
       var result = winnerChecker(user, comp)
       switch (result) {
         case "win":

@@ -6,7 +6,6 @@ import styled from "styled-components"
 import { colors } from "../styles/colors"
 
 //assets
-import Logo from "../../images/logo.svg"
 
 //components
 import StyledScoreboard from "../score/scoreBox"
@@ -26,12 +25,19 @@ const StyledHeader = styled.div`
   border: 4px solid ${props => `${props.outline}`};
   border-radius: 20px;
   margin-bottom: 50px;
+  @media screen and (max-width: 800px) {
+    margin-bottom: 0px;
+    img {
+      width: 45%;
+      height: auto;
+    }
+  }
 `
 
 const Header = ({ score }) => {
   return (
     <StyledHeader outline={colors.headerOutline}>
-      <Logo />
+      <img src="./logo.svg" alt logo />
       <StyledScoreboard score={score} />
     </StyledHeader>
   )

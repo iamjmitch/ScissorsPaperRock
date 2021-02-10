@@ -25,11 +25,14 @@ const Background = styled.div`
 `
 
 const StyledContainer = styled.div`
-  width: 1366px;
+  width: 1440px;
   margin: 0 auto;
   position: relative;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 1439px) {
+    width: 100%;
+  }
 `
 
 const Main = props => {

@@ -2,9 +2,6 @@
 import React from "react"
 import styled from "styled-components"
 
-//styles
-import { colors } from "../styles/colors"
-
 const StyledToken = styled.div`
   z-index: 100;
   transition: 0.5s linear;
@@ -30,13 +27,16 @@ const StyledOutter = styled.div`
   width: 225px;
   height: 225px;
   border-radius: 50%;
-
   box-shadow: ${props =>
     props.winGlow === true && props.thinking === false
       ? props => `${props.shadow}, ${winGlowSettings}`
       : props => props.shadow};
   &:hover {
     cursor: ${props => (props.clickable === "yes" ? "pointer" : "auto")};
+  }
+  @media screen and (max-width: 800px) {
+    width: 43vw;
+    height: 43vw;
   }
 `
 const StyledInner = styled.div`
@@ -76,7 +76,7 @@ const Token = ({
         thinking={thinking}
       >
         <StyledInner>
-          <img src={iconURL} />
+          <img src={iconURL} alt="icon" />
         </StyledInner>
       </StyledOutter>
     </StyledToken>

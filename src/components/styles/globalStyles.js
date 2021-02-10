@@ -6,6 +6,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  body {
+    min-width: 340px;
+  }
 `
 
 export default GlobalStyle

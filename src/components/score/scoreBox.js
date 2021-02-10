@@ -15,6 +15,11 @@ const StyledScoreboard = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media screen and (max-width: 800px) {
+    width: 120px;
+    height: auto;
+    padding: 10px;
+  }
 `
 
 const StyledScoreHeading = styled.h1`
@@ -31,6 +36,10 @@ const StyledScore = styled.h2`
   letter-spacing: 2px;
   font-size: 70px;
   line-height: 70px;
+  @media screen and (max-width: 800px) {
+    font-size: 50px;
+    line-height: 50px;
+  }
 `
 
 const Scoreboard = ({ score }) => {

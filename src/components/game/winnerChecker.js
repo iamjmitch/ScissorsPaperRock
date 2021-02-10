@@ -1,6 +1,3 @@
-//dependancies
-import React from "react"
-
 const winnerChecker = (player, computer) => {
   if (typeof computer !== "undefined") {
     switch (player) {
@@ -12,6 +9,7 @@ const winnerChecker = (player, computer) => {
         } else if (computer === "paper") {
           return "win"
         }
+        break
       case "rock":
         if (computer === "rock") {
           return "draw"
@@ -20,6 +18,7 @@ const winnerChecker = (player, computer) => {
         } else if (computer === "scissors") {
           return "win"
         }
+        break
       case "paper":
         if (computer === "paper") {
           return "draw"
@@ -28,6 +27,9 @@ const winnerChecker = (player, computer) => {
         } else if (computer === "rock") {
           return "win"
         }
+        break
+      default:
+        console.log("An error has occured")
     }
   }
 }
