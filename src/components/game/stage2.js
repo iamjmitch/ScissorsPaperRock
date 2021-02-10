@@ -82,7 +82,7 @@ const ComputerSelection = styled.div`
   }
 `
 
-const Stage2 = props => {
+const Stage2 = ({ userSelection, increase, decrease, reset }) => {
   const [userSelected, setUserSelected] = useState("")
   const [computerSelected, setComputerSelected] = useState("")
   const [endResult, setEndResult] = useState("working")
@@ -93,7 +93,7 @@ const Stage2 = props => {
   useEffect(() => {
     if (userSelected === "") {
       for (var i = 0; i < tokenData.length; i++) {
-        if (tokenData[i].name == props.userSelection) {
+        if (tokenData[i].name == userSelection) {
           setUserSelected(tokenData[i])
         }
       }
@@ -119,13 +119,13 @@ const Stage2 = props => {
       var result = winnerChecker(user, comp)
       switch (result) {
         case "win":
-          setTimeout(() => props.increase(), 3000)
+          setTimeout(() => increase(), 3000)
           setEndResult("You win")
           setWinner("player")
           break
         case "loose":
           setEndResult("You lose")
-          setTimeout(() => props.decrease(), 3000)
+          setTimeout(() => decrease(), 3000)
           setWinner("computer")
           break
         case "draw":
@@ -145,10 +145,7 @@ const Stage2 = props => {
       <UserSelection thinking={thinking}>
         <h3>You Pick</h3>
         <Token
-          name={userSelected.name}
-          image={userSelected.iconURL}
-          gradient={userSelected.gradient}
-          shadow={userSelected.shadow}
+          {...userSelected}
           clickable="no"
           winGlow={winner === "player" || winner === "tie" ? true : false}
           thinking={thinking}
@@ -156,11 +153,7 @@ const Stage2 = props => {
         />
       </UserSelection>
       {thinking === false && (
-        <EndGame
-          gameOver={gameOver}
-          reset={props.reset}
-          endResult={endResult}
-        />
+        <EndGame gameOver={gameOver} reset={reset} endResult={endResult} />
       )}
       <ComputerSelection thinking={thinking}>
         <h3>The House Picked</h3>
@@ -168,10 +161,7 @@ const Stage2 = props => {
           <BlankToken thinking={thinking} />
         ) : (
           <Token
-            name={computerSelected.name}
-            image={computerSelected.iconURL}
-            gradient={computerSelected.gradient}
-            shadow={computerSelected.shadow}
+            {...computerSelected}
             clickable="no"
             winGlow={winner === "computer" || winner === "tie" ? true : false}
             thinking={thinking}

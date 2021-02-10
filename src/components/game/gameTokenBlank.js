@@ -20,9 +20,9 @@ const StyledOutter = styled.div`
   border-radius: 50%;
 `
 
-const BlankToken = props => {
+const BlankToken = ({ thinking }) => {
   return (
-    <StyledToken thinking={props.thinking}>
+    <StyledToken thinking={thinking}>
       <StyledOutter></StyledOutter>
     </StyledToken>
   )

@@ -8,7 +8,7 @@ import { typography } from "../styles/typography"
 
 const StyledButton = styled.button`
   height: 50px;
-  width: 90%;
+  width: 70%;
   background: ${colors.white};
   font-family: ${typography.font};
   text-transform: uppercase;
@@ -32,8 +32,8 @@ const StyledButton = styled.button`
   animation-duration: 0.2s;
 `
 
-const Button = props => {
-  return <StyledButton onClick={props.reset}>Play Again</StyledButton>
+const Button = ({ reset }) => {
+  return <StyledButton onClick={reset}>Play Again</StyledButton>
 }
 
 export default Button

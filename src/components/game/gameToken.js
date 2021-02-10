@@ -54,21 +54,29 @@ const StyledInner = styled.div`
   }
 `
 
-const Token = props => {
+const Token = ({
+  thinking,
+  player,
+  gradient,
+  shadow,
+  clickable,
+  name,
+  winGlow,
+  iconURL,
+  handler,
+}) => {
   return (
-    <StyledToken thinking={props.thinking} player={props.player}>
+    <StyledToken thinking={thinking} player={player}>
       <StyledOutter
-        gradient={props.gradient}
-        shadow={props.shadow}
-        clickable={props.clickable}
-        onClick={() =>
-          props.clickable === "yes" ? props.handler(props.name) : null
-        }
-        winGlow={props.winGlow}
-        thinking={props.thinking}
+        gradient={gradient}
+        shadow={shadow}
+        clickable={clickable}
+        onClick={() => (clickable === "yes" ? handler(name) : null)}
+        winGlow={winGlow}
+        thinking={thinking}
       >
         <StyledInner>
-          <img src={props.image} />
+          <img src={iconURL} />
         </StyledInner>
       </StyledOutter>
     </StyledToken>

@@ -47,7 +47,7 @@ const StyledDiv = styled.div`
   }
 `
 
-const EndGame = props => {
+const EndGame = ({ endResult, gameOver, reset }) => {
   const [showS, setShowS] = useState(false)
 
   const handleShow = () => {
@@ -57,8 +57,8 @@ const EndGame = props => {
   useEffect(() => handleShow(), [])
   return (
     <StyledDiv>
-      {showS && <h5>{props.endResult}</h5>}
-      {showS && props.gameOver === true && <Button reset={props.reset} />}
+      {showS && <h5>{endResult}</h5>}
+      {showS && gameOver === true && <Button reset={reset} />}
     </StyledDiv>
   )
 }

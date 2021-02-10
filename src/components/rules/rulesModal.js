@@ -64,18 +64,18 @@ const StyledDiv = styled.div`
   }
 `
 
-const Modal = props => {
+const Modal = ({ show, toggle }) => {
   return (
     <BG
       id="back"
-      show={props.show}
+      show={show}
       //if user clicks on dark background, the modal will hide. wont hide when clicking on the white area
-      onClick={e => (e.target.id === "back" ? props.toggle() : "")}
+      onClick={e => (e.target.id === "back" ? toggle() : "")}
     >
       <StyledModal>
         <StyledDiv>
           RULES
-          <Close onClick={props.toggle} />
+          <Close onClick={toggle} />
         </StyledDiv>
         <RulesImage />
       </StyledModal>

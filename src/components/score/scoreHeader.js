@@ -28,11 +28,11 @@ const StyledHeader = styled.div`
   margin-bottom: 50px;
 `
 
-const Header = props => {
+const Header = ({ score }) => {
   return (
     <StyledHeader outline={colors.headerOutline}>
       <Logo />
-      <StyledScoreboard score={props.score} />
+      <StyledScoreboard score={score} />
     </StyledHeader>
   )
 }
