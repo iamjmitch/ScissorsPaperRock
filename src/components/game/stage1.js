@@ -1,9 +1,6 @@
 //dependancies
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
-
-//assets
-import Triangle from "../../images/bg-triangle.svg"
 
 //components
 import Token from "./gameToken"
@@ -22,6 +19,9 @@ const StyledGameContainer = styled.div`
   justify-content: center;
   position: relative;
   margin-bottom: 50px;
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 `
 
 const StyledTriangleSpan = styled.span`
@@ -41,12 +41,18 @@ const StyledTriangleSpan = styled.span`
   }
   animation-name: showTriangle;
   animation-duration: 0.9s;
+  @media screen and (max-width: 800px) {
+    width: 60%;
+  }
 `
 const TokenContainerTop = styled.div`
   width: 550px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `
 const TokenContainerBottom = styled.div`
   transform: translateY(30px);
@@ -54,12 +60,16 @@ const TokenContainerBottom = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin
+  }
 `
 const Stage1 = ({ handler }) => {
   return (
     <StyledGameContainer>
       <StyledTriangleSpan>
-        <Triangle />
+        <img src="./bg-triangle.svg" alt="triangle - visual only" />
       </StyledTriangleSpan>
       <TokenContainerTop>
         <Token {...tokenData[0]} handler={handler} clickable="yes" />
