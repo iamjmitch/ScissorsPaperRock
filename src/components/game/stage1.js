@@ -1,5 +1,5 @@
 //dependancies
-import React from "react"
+import React, { createRef, useEffect, useState } from "react"
 import styled from "styled-components"
 
 //components
@@ -19,9 +19,7 @@ const StyledGameContainer = styled.div`
   justify-content: center;
   position: relative;
   margin-bottom: 50px;
-  @media screen and (max-width: 800px) {
-    width: 90%;
-  }
+  transform: scale(${props => props.scale});
 `
 
 const StyledTriangleSpan = styled.span`
@@ -41,18 +39,12 @@ const StyledTriangleSpan = styled.span`
   }
   animation-name: showTriangle;
   animation-duration: 0.9s;
-  @media screen and (max-width: 800px) {
-    width: 60%;
-  }
 `
 const TokenContainerTop = styled.div`
   width: 550px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  @media screen and (max-width: 800px) {
-    width: 100%;
-  }
 `
 const TokenContainerBottom = styled.div`
   transform: translateY(30px);
@@ -60,14 +52,25 @@ const TokenContainerBottom = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    margin
-  }
 `
 const Stage1 = ({ handler }) => {
+  //default for if window not detected (i.e during gatsby build)
+  let stageOne = createRef()
+  const [scale, SetScale] = useState(1)
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      var calculation = Math.min(
+        window.innerWidth / 1440,
+        window.innerHeight / 500
+      )
+      if (calculation < 1) {
+        SetScale(calculation + 0.2)
+      }
+    }
+  }, [stageOne])
+
   return (
-    <StyledGameContainer>
+    <StyledGameContainer ref={stageOne} scale={scale}>
       <StyledTriangleSpan>
         <img src="./bg-triangle.svg" alt="triangle - visual only" />
       </StyledTriangleSpan>
