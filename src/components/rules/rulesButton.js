@@ -25,9 +25,9 @@ const StyledButton = styled.div`
   }
 
   @media screen and (max-width: 700px) {
-    position: unset;
-    bottom: unset;
-    top: unset;
+    bottom: 25px;
+    right: 50%;
+    transform: translateX(50%);
   }
 `
 
