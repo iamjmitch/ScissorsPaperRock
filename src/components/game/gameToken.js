@@ -15,7 +15,7 @@ const StyledToken = styled.div`
   }
   animation-name: showToken;
   animation-duration: 0.9s;
-  padding: 0 40px;
+  padding: 0 35px;
 `
 const winGlowSettings =
   " 0px 0px 0px 40px #ffffff04, 0px 0px 0px 80px #ffffff04, 0px 0px 0px 130px #ffffff04;"
@@ -29,10 +29,7 @@ const StyledOutter = styled.div`
   width: 230px;
   height: 230px;
   border-radius: 50%;
-  box-shadow: ${props =>
-    props.winGlow === true && props.thinking === false
-      ? props => `${props.shadow}, ${winGlowSettings}`
-      : props => props.shadow};
+
   &:hover {
     cursor: ${props => (props.clickable === "yes" ? "pointer" : "auto")};
   }
@@ -81,3 +78,8 @@ const Token = ({
   )
 }
 export default Token
+
+// box-shadow: ${props =>
+//   props.winGlow === true && props.thinking === false
+//     ? props => `${props.shadow}, ${winGlowSettings}`
+//     : props => props.shadow};

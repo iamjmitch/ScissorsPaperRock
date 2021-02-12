@@ -21,7 +21,7 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 `
 
 const StyledContainer = styled.div`
@@ -32,6 +32,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   @media screen and (max-width: 1439px) {
     width: 100%;
+    overflow: hidden;
   }
 `
 

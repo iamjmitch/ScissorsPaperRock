@@ -11,18 +11,18 @@ import { tokenData } from "../data/tokenData"
 const StyledGameContainer = styled.div`
   color: red;
   align-self: center;
-  padding-top: 50px;
+  margin-top: 50px;
   width: 90%;
   max-width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  margin: 50px 0;
+  margin: 100px 0;
   transform: scale(${props => props.scale});
   background: url("./bg-triangle.svg") no-repeat center center;
-  @media screen and (max-width: 900px) {
-    margin-top: 0;
+  @media screen and (max-width: 800px) {
+    margin-top: 20vh;
   }
 `
 
@@ -53,7 +53,7 @@ const Stage1 = ({ handler }) => {
       console.log(window.outerWidth)
       console.log(window.outerHeight)
       if (dynamicScale < 1) {
-        setScale(dynamicScale)
+        setScale(dynamicScale + 0.1)
       }
     }
   }, [])

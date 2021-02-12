@@ -29,6 +29,7 @@ const StyledHeader = styled.div`
     margin-bottom: 0px;
     img {
       width: 45%;
+      max-width: 165px;
       height: auto;
     }
   }
