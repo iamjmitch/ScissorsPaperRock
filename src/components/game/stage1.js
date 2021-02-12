@@ -13,67 +13,52 @@ const StyledGameContainer = styled.div`
   align-self: center;
   padding-top: 50px;
   width: 90%;
-  max-width: 900px;
+  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  margin-bottom: 50px;
+  margin: 50px 0;
   transform: scale(${props => props.scale});
+  background: url("./bg-triangle.svg") no-repeat center center;
+  @media screen and (max-width: 900px) {
+    margin-top: 0;
+  }
 `
 
-const StyledTriangleSpan = styled.span`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @keyframes showTriangle {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  animation-name: showTriangle;
-  animation-duration: 0.9s;
-`
 const TokenContainerTop = styled.div`
-  width: 550px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: -100px;
 `
 const TokenContainerBottom = styled.div`
   transform: translateY(30px);
-  width: 550px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
 `
 const Stage1 = ({ handler }) => {
-  //default for if window not detected (i.e during gatsby build)
-  let stageOne = createRef()
-  const [scale, SetScale] = useState(1)
+  const [scale, setScale] = useState(1)
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      var calculation = Math.min(
-        window.innerWidth / 1440,
-        window.innerHeight / 500
+    if (typeof window !== "undefined") {
+      var dynamicScale = Math.min(
+        window.outerWidth / 800,
+        window.outerHeight / 410
       )
-      if (calculation < 1) {
-        SetScale(calculation + 0.2)
+      console.log(window.outerWidth)
+      console.log(window.outerHeight)
+      if (dynamicScale < 1) {
+        setScale(dynamicScale)
       }
     }
-  }, [stageOne])
-
+  }, [])
   return (
-    <StyledGameContainer ref={stageOne} scale={scale}>
-      <StyledTriangleSpan>
-        <img src="./bg-triangle.svg" alt="triangle - visual only" />
-      </StyledTriangleSpan>
+    <StyledGameContainer scale={scale}>
       <TokenContainerTop>
         <Token {...tokenData[0]} handler={handler} clickable="yes" />
         <Token {...tokenData[1]} handler={handler} clickable="yes" />
