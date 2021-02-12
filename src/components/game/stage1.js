@@ -24,6 +24,9 @@ const StyledGameContainer = styled.div`
   @media screen and (max-width: 500px) {
     margin-top: 50px;
   }
+  @media screen and (max-width: 400px) {
+    margin-top: 0px;
+  }
 `
 
 const StyledTriangleSpan = styled.span`
