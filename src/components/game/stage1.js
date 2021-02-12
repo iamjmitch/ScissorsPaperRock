@@ -68,11 +68,13 @@ const Stage1 = ({ handler }) => {
   if (typeof window !== "undefined") {
     useEffect(() => {
       var dynamicScale = Math.min(
+        window.innerWidth / 800,
+        window.innerHeight / 1000,
         window.outerWidth / 800,
-        window.outerHeight / 700
+        window.outerHeight / 1000
       )
-      console.log(window.outerWidth)
-      console.log(window.outerHeight)
+      console.log(window.innerWidth)
+      console.log(window.innerHeight)
       if (dynamicScale < 1) {
         setScale(dynamicScale + 0.1)
       }
