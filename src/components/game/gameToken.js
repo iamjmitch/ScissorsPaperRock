@@ -29,6 +29,10 @@ const StyledOutter = styled.div`
   width: 230px;
   height: 230px;
   border-radius: 50%;
+  box-shadow: ${props =>
+    props.winGlow === true && props.thinking === false
+      ? props => `${props.shadow}, ${winGlowSettings}`
+      : props => props.shadow};
 
   &:hover {
     cursor: ${props => (props.clickable === "yes" ? "pointer" : "auto")};
@@ -78,8 +82,3 @@ const Token = ({
   )
 }
 export default Token
-
-// box-shadow: ${props =>
-//   props.winGlow === true && props.thinking === false
-//     ? props => `${props.shadow}, ${winGlowSettings}`
-//     : props => props.shadow};
