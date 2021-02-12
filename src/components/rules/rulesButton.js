@@ -10,6 +10,8 @@ const StyledButton = styled.div`
   position: absolute;
   bottom: 25px;
   right: 25px;
+  max-width: 150px;
+  margin: 10px auto;
   border: 3px solid ${colors.headerOutline};
   color: ${colors.white};
   padding: 10px 40px;
@@ -20,6 +22,12 @@ const StyledButton = styled.div`
   &:hover {
     cursor: pointer;
     background: ${colors.darkText};
+  }
+
+  @media screen and (max-width: 700px) {
+    position: unset;
+    bottom: unset;
+    top: unset;
   }
 `
 

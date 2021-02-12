@@ -66,7 +66,7 @@ const Stage1 = ({ handler }) => {
     useEffect(() => {
       var dynamicScale = Math.min(
         window.outerWidth / 800,
-        window.outerHeight / 800
+        window.outerHeight / 700
       )
       console.log(window.outerWidth)
       console.log(window.outerHeight)
