@@ -25,6 +25,9 @@ const StyledHeader = styled.div`
   border: 4px solid ${props => `${props.outline}`};
   border-radius: 20px;
   margin-bottom: 50px;
+  @media screen and (max-height: 1000px) {
+    margin-bottom: 30px;
+  }
   @media screen and (max-width: 800px) {
     margin-bottom: 0px;
     img {

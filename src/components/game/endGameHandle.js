@@ -10,7 +10,7 @@ import { colors } from "../styles/colors"
 import Button from "./playAgainButton"
 
 const StyledDiv = styled.div`
-  width: 30%;
+  width: ${props => (props.windowWidth > 800 ? "30%" : "100%")};
   font-family: ${typography.font};
   text-transform: uppercase;
   color: ${colors.white};
@@ -47,7 +47,7 @@ const StyledDiv = styled.div`
   }
 `
 
-const EndGame = ({ endResult, gameOver, reset }) => {
+const EndGame = ({ endResult, gameOver, reset, windowWidth }) => {
   const [showS, setShowS] = useState(false)
 
   const handleShow = () => {

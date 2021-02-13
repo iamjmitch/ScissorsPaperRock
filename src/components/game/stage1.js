@@ -21,6 +21,15 @@ const StyledGameContainer = styled.div`
   margin-top: 100px;
   transform: scale(${props => props.scale});
 
+  @media screen and (max-height: 1000px) {
+    margin-top: 130px;
+  }
+  @media screen and (max-height: 800px) {
+    margin-top: 75px;
+  }
+  @media screen and (max-height: 700px) {
+    margin-top: 50px;
+  }
   @media screen and (max-width: 500px) {
     margin-top: 50px;
   }
@@ -65,6 +74,7 @@ const TokenContainerBottom = styled.div`
 `
 const Stage1 = ({ handler }) => {
   const [scale, setScale] = useState(1)
+
   if (typeof window !== "undefined") {
     useEffect(() => {
       var dynamicScale = Math.min(

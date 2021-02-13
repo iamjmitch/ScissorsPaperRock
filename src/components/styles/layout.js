@@ -1,5 +1,5 @@
 //dependancies
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import GlobalStyle from "../styles/globalStyles"
 
@@ -80,6 +80,13 @@ const Main = props => {
       setShowModal(true)
     }
   }
+
+  const [windowWidth, setWindowWidth] = useState("")
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.outerWidth)
+    }
+  })
   return (
     <Background {...props}>
       <GlobalStyle />
@@ -91,6 +98,7 @@ const Main = props => {
         )}
         {userSelectionMade === true && (
           <Stage2
+            windowWidth={windowWidth}
             userSelection={userSelection}
             computerSelection={computerSelection}
             increase={increaseScore}

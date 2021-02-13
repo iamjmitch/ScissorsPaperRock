@@ -16,6 +16,7 @@ import { tokenData } from "../data/tokenData"
 import winnerChecker from "./winnerChecker"
 
 const StyledGameContainer = styled.div`
+  margin: 0 auto;
   color: red;
   align-self: center;
   padding-top: 50px;
