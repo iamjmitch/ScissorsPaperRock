@@ -37,7 +37,7 @@ const StyledContainer = styled.div`
   @media screen and (max-width: 1439px) {
     width: 100%;
   }
-  opacity: ${props => (props.loading = true ? 0 : 1)};
+  opacity: ${props => (props.loading ? 0 : 1)};
 `
 
 const Main = props => {
