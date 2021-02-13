@@ -108,7 +108,11 @@ const Main = props => {
         )}
       </StyledContainer>
       <Button toggle={handleShowRules} />
-      <Modal show={showModal} toggle={handleShowRules} />
+      <Modal
+        show={showModal}
+        toggle={handleShowRules}
+        windowWidth={windowWidth}
+      />
     </Background>
   )
 }

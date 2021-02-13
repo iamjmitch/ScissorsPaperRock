@@ -41,6 +41,12 @@ const StyledModal = styled.div`
   svg {
     margin: 30px 18px 0 18px;
   }
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 const StyledDiv = styled.div`
   display: flex;
@@ -64,7 +70,7 @@ const StyledDiv = styled.div`
   }
 `
 
-const Modal = ({ show, toggle }) => {
+const Modal = ({ show, toggle, windowWidth }) => {
   return (
     <BG
       id="back"
@@ -75,9 +81,10 @@ const Modal = ({ show, toggle }) => {
       <StyledModal>
         <StyledDiv>
           RULES
-          <Close onClick={toggle} />
+          {windowWidth > 500 && <Close className="mobile" onClick={toggle} />}
         </StyledDiv>
         <RulesImage />
+        {windowWidth < 500 && <Close className="mobile" onClick={toggle} />}
       </StyledModal>
     </BG>
   )
