@@ -84,7 +84,7 @@ const Main = props => {
   const [windowWidth, setWindowWidth] = useState("")
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setWindowWidth(window.outerWidth)
+      setWindowWidth(`${window.outerWidth} , ${window.outerHeight}`)
     }
   })
   return (
