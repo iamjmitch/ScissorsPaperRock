@@ -37,6 +37,7 @@ const StyledContainer = styled.div`
   @media screen and (max-width: 1439px) {
     width: 100%;
   }
+  opacity: ${props => (props.loading = true ? 0 : 1)};
 `
 
 const Main = props => {
@@ -50,6 +51,8 @@ const Main = props => {
   const [userSelection, setUserSelection] = useState("")
   //computers selection
   const [computerSelection, setComputerSelection] = useState("")
+  //loading screen
+  const [loading, setLoading] = useState(true)
 
   //handles the users selection and save name of their choice to state
   const userSelectionHandler = selection => {
@@ -94,10 +97,10 @@ const Main = props => {
     <Background {...props}>
       <GlobalStyle />
       <SEO />
-      <StyledContainer>
+      <StyledContainer loading={loading}>
         <Header score={score} />
         {userSelectionMade === false && (
-          <Stage1 handler={userSelectionHandler} />
+          <Stage1 handler={userSelectionHandler} loadingHandler={setLoading} />
         )}
         {userSelectionMade === true && (
           <Stage2

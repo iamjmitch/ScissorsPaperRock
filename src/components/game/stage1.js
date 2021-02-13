@@ -76,7 +76,7 @@ const TokenContainerBottom = styled.div`
   flex-wrap: nowrap;
   justify-content: center;
 `
-const Stage1 = ({ handler }) => {
+const Stage1 = ({ handler, loadingHandler }) => {
   const [scale, setScale] = useState(1)
 
   if (typeof window !== "undefined") {
@@ -91,6 +91,7 @@ const Stage1 = ({ handler }) => {
       console.log(window.innerHeight)
       if (dynamicScale < 1) {
         setScale(dynamicScale + 0.1)
+        loadingHandler(false)
       }
     }, [window.outerWidth, window.outerHeight])
   }
