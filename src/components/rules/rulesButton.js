@@ -29,6 +29,10 @@ const StyledButton = styled.div`
     right: 50%;
     transform: translateX(50%);
   }
+
+  @media screen and (max-height: 690px) {
+    bottom: 5px;
+  }
 `
 
 const Button = ({ toggle }) => {

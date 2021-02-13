@@ -84,7 +84,7 @@ const Main = props => {
   const [windowWidth, setWindowWidth] = useState("")
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setWindowWidth(`${window.outerWidth} , ${window.outerHeight}`)
+      setWindowWidth(window.outerWidth)
     }
   })
   return (
@@ -92,7 +92,6 @@ const Main = props => {
       <GlobalStyle />
       <SEO />
       <StyledContainer>
-        <h1>{windowWidth}</h1>
         <Header score={score} />
         {userSelectionMade === false && (
           <Stage1 handler={userSelectionHandler} />

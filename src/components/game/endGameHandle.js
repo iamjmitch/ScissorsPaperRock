@@ -46,12 +46,12 @@ const StyledDiv = styled.div`
     animation-duration: 0.2s;
   }
   @media screen and (max-height: 720px) {
-    margin-top: -50px;
+    margin-top: -40px;
     font-size: 50px;
   }
-  @media screen and (max-height: 720px) {
-    margin-top: -50px;
-    font-size: 40px;
+  @media screen and (max-height: 690px) {
+    margin-top: -60px;
+    font-size: 30px;
   }
 `
 
