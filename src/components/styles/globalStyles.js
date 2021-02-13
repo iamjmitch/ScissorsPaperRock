@@ -6,7 +6,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-
+  body{
+    min-height: 630px;
+  }
 
   
 `

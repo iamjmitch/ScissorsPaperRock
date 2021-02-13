@@ -23,6 +23,9 @@ const Background = styled.div`
   width: 100vw;
   min-height: 100vh;
   padding-bottom: 10px;
+  @media screen and (max-height: 630px) {
+    min-height: 630px;
+  }
 `
 
 const StyledContainer = styled.div`
