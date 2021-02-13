@@ -92,6 +92,7 @@ const Main = props => {
       <GlobalStyle />
       <SEO />
       <StyledContainer>
+        <h1>{windowWidth}</h1>
         <Header score={score} />
         {userSelectionMade === false && (
           <Stage1 handler={userSelectionHandler} />
