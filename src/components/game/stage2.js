@@ -82,7 +82,7 @@ const ComputerSelection = styled.div`
   }
 `
 
-const Stage2 = ({ userSelection, increase, decrease, reset }) => {
+const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   const [userSelected, setUserSelected] = useState("")
   const [computerSelected, setComputerSelected] = useState("")
   const [endResult, setEndResult] = useState("working")
@@ -141,34 +141,44 @@ const Stage2 = ({ userSelection, increase, decrease, reset }) => {
   }
 
   return (
-    <StyledGameContainer gameOver={gameOver} thinking={thinking}>
-      <UserSelection thinking={thinking}>
-        <h3>You Pick</h3>
-        <Token
-          {...userSelected}
-          clickable="no"
-          winGlow={winner === "player" || winner === "tie" ? true : false}
-          thinking={thinking}
-          player={true}
-        />
-      </UserSelection>
-      {thinking === false && (
-        <EndGame gameOver={gameOver} reset={reset} endResult={endResult} />
-      )}
-      <ComputerSelection thinking={thinking}>
-        <h3>The House Picked</h3>
-        {thinking === true ? (
-          <BlankToken thinking={thinking} />
-        ) : (
+    <div>
+      <StyledGameContainer gameOver={gameOver} thinking={thinking}>
+        <UserSelection thinking={thinking}>
+          <h3>You Pick</h3>
           <Token
-            {...computerSelected}
+            {...userSelected}
             clickable="no"
-            winGlow={winner === "computer" || winner === "tie" ? true : false}
+            winGlow={winner === "player" || winner === "tie" ? true : false}
             thinking={thinking}
+            player={true}
           />
+        </UserSelection>
+        {thinking === false && windowWidth > 800 && (
+          <EndGame gameOver={gameOver} reset={reset} endResult={endResult} />
         )}
-      </ComputerSelection>
-    </StyledGameContainer>
+        <ComputerSelection thinking={thinking}>
+          <h3>The House Picked</h3>
+          {thinking === true ? (
+            <BlankToken thinking={thinking} />
+          ) : (
+            <Token
+              {...computerSelected}
+              clickable="no"
+              winGlow={winner === "computer" || winner === "tie" ? true : false}
+              thinking={thinking}
+            />
+          )}
+        </ComputerSelection>
+      </StyledGameContainer>
+      {thinking === false && windowWidth < 800 && (
+        <EndGame
+          gameOver={gameOver}
+          reset={reset}
+          endResult={endResult}
+          windowWidth={windowWidth}
+        />
+      )}
+    </div>
   )
 }
 
