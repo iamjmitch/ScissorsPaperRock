@@ -20,6 +20,11 @@ const StyledScoreboard = styled.div`
     height: auto;
     padding: 10px;
   }
+  @media screen and (max-width: 300px) {
+    width: auto;
+    height: auto;
+    padding: 10px;
+  }
 `
 
 const StyledScoreHeading = styled.h1`
@@ -28,6 +33,9 @@ const StyledScoreHeading = styled.h1`
   letter-spacing: 2px;
   font-size: 18px;
   font-weight: ${typography.weightBold};
+  @media screen and (max-width: 300px) {
+    font-size: 14px;
+  }
 `
 
 const StyledScore = styled.h2`
@@ -39,6 +47,9 @@ const StyledScore = styled.h2`
   @media screen and (max-width: 800px) {
     font-size: 50px;
     line-height: 50px;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 30px;
   }
 `
 

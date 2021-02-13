@@ -9,6 +9,7 @@ import { typography } from "../styles/typography"
 const StyledButton = styled.button`
   height: 50px;
   width: 70%;
+  max-width: 300px;
   background: ${colors.white};
   font-family: ${typography.font};
   text-transform: uppercase;
@@ -30,6 +31,10 @@ const StyledButton = styled.button`
   }
   animation-name: showButton;
   animation-duration: 0.2s;
+  @media screen and (max-height: 620px) {
+    height: auto;
+    padding: 10px;
+  }
 `
 
 const Button = ({ reset }) => {

@@ -21,6 +21,10 @@ const StyledGameContainer = styled.div`
   margin-top: 100px;
   transform: scale(${props => props.scale});
 
+  @media screen and (max-height: 1200px) {
+    margin-top: 150px;
+  }
+
   @media screen and (max-height: 1000px) {
     margin-top: 130px;
   }

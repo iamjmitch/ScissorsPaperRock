@@ -28,6 +28,18 @@ const StyledGameContainer = styled.div`
   justify-content: center;
   position: relative;
   margin-bottom: 50px;
+  transform: scale(${props => props.scale});
+  @media screen and (max-height: 1000px) {
+    padding-top: 0px;
+  }
+  @media screen and (max-height: 900px) {
+    margin-bottom: 0;
+  }
+  @media screen and (max-height: 800px) {
+    padding-top: 0px;
+    margin-top: -20px;
+    margin-bottom: 0;
+  }
 `
 
 const UserSelection = styled.div`
@@ -90,6 +102,23 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   const [gameOver, setGameOver] = useState(false)
   const [winner, setWinner] = useState("")
   const [thinking, setThinking] = useState(true)
+  const [scale, setScale] = useState(1)
+
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      var dynamicScale = Math.min(
+        window.innerWidth / 800,
+        window.innerHeight / 1000,
+        window.outerWidth / 800,
+        window.outerHeight / 1000
+      )
+      console.log(window.innerWidth)
+      console.log(window.innerHeight)
+      if (dynamicScale < 1) {
+        setScale(dynamicScale + 0.1)
+      }
+    }, [window.outerWidth, window.outerHeight])
+  }
 
   useEffect(() => {
     if (userSelected === "") {
@@ -143,7 +172,11 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
 
   return (
     <div>
-      <StyledGameContainer gameOver={gameOver} thinking={thinking}>
+      <StyledGameContainer
+        gameOver={gameOver}
+        thinking={thinking}
+        scale={scale}
+      >
         <UserSelection thinking={thinking}>
           <h3>You Pick</h3>
           <Token
@@ -155,7 +188,12 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
           />
         </UserSelection>
         {thinking === false && windowWidth > 800 && (
-          <EndGame gameOver={gameOver} reset={reset} endResult={endResult} />
+          <EndGame
+            gameOver={gameOver}
+            reset={reset}
+            endResult={endResult}
+            windowWidth={windowWidth}
+          />
         )}
         <ComputerSelection thinking={thinking}>
           <h3>The House Picked</h3>

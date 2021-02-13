@@ -22,7 +22,7 @@ const Background = styled.div`
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 `
 
 const StyledContainer = styled.div`

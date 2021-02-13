@@ -45,6 +45,14 @@ const StyledDiv = styled.div`
     animation-name: showResult;
     animation-duration: 0.2s;
   }
+  @media screen and (max-height: 720px) {
+    margin-top: -50px;
+    font-size: 50px;
+  }
+  @media screen and (max-height: 720px) {
+    margin-top: -50px;
+    font-size: 40px;
+  }
 `
 
 const EndGame = ({ endResult, gameOver, reset, windowWidth }) => {
@@ -56,7 +64,7 @@ const EndGame = ({ endResult, gameOver, reset, windowWidth }) => {
 
   useEffect(() => handleShow(), [])
   return (
-    <StyledDiv>
+    <StyledDiv windowWidth={windowWidth}>
       {showS && <h5>{endResult}</h5>}
       {showS && gameOver === true && <Button reset={reset} />}
     </StyledDiv>
