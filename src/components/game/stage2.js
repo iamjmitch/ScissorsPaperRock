@@ -1,6 +1,7 @@
 //dependancies
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
+import ScaleProvider from "../global/contextScreen"
 
 //styles
 import { typography } from "../styles/typography"
@@ -102,23 +103,7 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   const [gameOver, setGameOver] = useState(false)
   const [winner, setWinner] = useState("")
   const [thinking, setThinking] = useState(true)
-  const [scale, setScale] = useState(1)
-
-  if (typeof window !== "undefined") {
-    useEffect(() => {
-      var dynamicScale = Math.min(
-        window.innerWidth / 800,
-        window.innerHeight / 1000,
-        window.outerWidth / 800,
-        window.outerHeight / 1000
-      )
-      console.log(window.innerWidth)
-      console.log(window.innerHeight)
-      if (dynamicScale < 1) {
-        setScale(dynamicScale + 0.1)
-      }
-    }, [window.outerWidth, window.outerHeight])
-  }
+  const scale = useContext(ScaleProvider)
 
   useEffect(() => {
     if (userSelected === "") {

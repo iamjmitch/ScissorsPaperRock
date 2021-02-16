@@ -1,6 +1,7 @@
 //dependancies
-import React, { createRef, useEffect, useState } from "react"
+import React, { createRef, useContext, useEffect, useState } from "react"
 import styled from "styled-components"
+import ScaleProvider from "../global/contextScreen"
 
 //components
 import Token from "./gameToken"
@@ -77,24 +78,7 @@ const TokenContainerBottom = styled.div`
   justify-content: center;
 `
 const Stage1 = ({ handler, loadingHandler }) => {
-  const [scale, setScale] = useState(1)
-
-  if (typeof window !== "undefined") {
-    useEffect(() => {
-      var dynamicScale = Math.min(
-        window.innerWidth / 800,
-        window.innerHeight / 1000,
-        window.outerWidth / 800,
-        window.outerHeight / 1000
-      )
-      console.log(window.innerWidth)
-      console.log(window.innerHeight)
-      if (dynamicScale < 1) {
-        setScale(dynamicScale + 0.1)
-        loadingHandler(false)
-      }
-    }, [window.outerWidth, window.outerHeight])
-  }
+  const scale = useContext(ScaleProvider)
   return (
     <StyledGameContainer scale={scale}>
       <StyledTriangleSpan>

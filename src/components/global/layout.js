@@ -1,7 +1,8 @@
 //dependancies
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import styled from "styled-components"
 import GlobalStyle from "../styles/globalStyles"
+import ScaleProvider from "./contextScreen"
 
 //components
 import Header from "../score/scoreHeader"
@@ -37,7 +38,7 @@ const StyledContainer = styled.div`
   @media screen and (max-width: 1439px) {
     width: 100%;
   }
-  opacity: ${props => (props.loading ? 0 : 1)};
+  opacity: ${props => (props.loading ? 1 : 1)};
 `
 
 const Main = props => {
@@ -53,6 +54,8 @@ const Main = props => {
   const [computerSelection, setComputerSelection] = useState("")
   //loading screen
   const [loading, setLoading] = useState(true)
+  //scale
+  const [screenScale, setScreenScale] = useState(1)
 
   //handles the users selection and save name of their choice to state
   const userSelectionHandler = selection => {
@@ -87,6 +90,22 @@ const Main = props => {
     }
   }
 
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      var dynamicScale = Math.min(
+        window.innerWidth / 800,
+        window.innerHeight / 1000,
+        window.outerWidth / 800,
+        window.outerHeight / 1000
+      )
+      console.log(window.innerWidth)
+      console.log(window.innerHeight)
+      if (dynamicScale < 1) {
+        setScreenScale(dynamicScale + 0.1)
+      }
+    }, [window.outerWidth, window.outerHeight])
+  }
+
   const [windowWidth, setWindowWidth] = useState("")
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -94,32 +113,37 @@ const Main = props => {
     }
   })
   return (
-    <Background {...props}>
-      <GlobalStyle />
-      <SEO />
-      <StyledContainer loading={loading}>
-        <Header score={score} />
-        {userSelectionMade === false && (
-          <Stage1 handler={userSelectionHandler} loadingHandler={setLoading} />
-        )}
-        {userSelectionMade === true && (
-          <Stage2
-            windowWidth={windowWidth}
-            userSelection={userSelection}
-            computerSelection={computerSelection}
-            increase={increaseScore}
-            decrease={decreaseScore}
-            reset={playAgain}
-          />
-        )}
-      </StyledContainer>
-      <Button toggle={handleShowRules} />
-      <Modal
-        show={showModal}
-        toggle={handleShowRules}
-        windowWidth={windowWidth}
-      />
-    </Background>
+    <ScaleProvider.Provider value={screenScale}>
+      <Background {...props}>
+        <GlobalStyle />
+        <SEO />
+        <StyledContainer loading={loading}>
+          <Header score={score} />
+          {userSelectionMade === false && (
+            <Stage1
+              handler={userSelectionHandler}
+              loadingHandler={setLoading}
+            />
+          )}
+          {userSelectionMade === true && (
+            <Stage2
+              windowWidth={windowWidth}
+              userSelection={userSelection}
+              computerSelection={computerSelection}
+              increase={increaseScore}
+              decrease={decreaseScore}
+              reset={playAgain}
+            />
+          )}
+        </StyledContainer>
+        <Button toggle={handleShowRules} />
+        <Modal
+          show={showModal}
+          toggle={handleShowRules}
+          windowWidth={windowWidth}
+        />
+      </Background>
+    </ScaleProvider.Provider>
   )
 }
 
