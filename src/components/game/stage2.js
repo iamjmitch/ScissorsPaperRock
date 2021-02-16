@@ -11,10 +11,10 @@ import { colors } from "../styles/colors"
 import Token from "./gameToken"
 import BlankToken from "./gameTokenBlank"
 import EndGame from "./endGameHandle"
+import ScoreHandlerFunction from "./scoreHandler"
 
 //functions and data
 import { tokenData } from "../data/tokenData"
-import winnerChecker from "./winnerChecker"
 
 const StyledGameContainer = styled.div`
   margin: 0 auto;
@@ -105,6 +105,7 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   const [thinking, setThinking] = useState(true)
   const scale = useContext(ScaleProvider)
 
+  //grabs the users selection and loads all the relavent sprite data into state
   useEffect(() => {
     if (userSelected === "") {
       for (var i = 0; i < tokenData.length; i++) {
@@ -113,6 +114,7 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
         }
       }
     }
+
     //will randomly select an object from the token data array as the computers choice
     if (userSelected !== "") {
       setComputerSelected(
@@ -121,37 +123,26 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
     }
   }, [userSelected])
 
+  //delays the display of computer selection. purely cosmetic
   useEffect(() => {
     setTimeout(() => setThinking(false), 1500)
   }, [])
 
+  //detects when either the user or computer selection has changed
   useEffect(() => {
     scoreHandler(userSelected.name, computerSelected.name)
   }, [userSelected, computerSelected])
 
+  //sends data to score handler for end game processing
   const scoreHandler = (user, comp) => {
-    if (userSelected !== "" && typeof comp !== "undefined") {
-      var result = winnerChecker(user, comp)
-      switch (result) {
-        case "win":
-          setTimeout(() => increase(), 3000)
-          setEndResult("You win")
-          setWinner("player")
-          break
-        case "loose":
-          setEndResult("You lose")
-          setTimeout(() => decrease(), 3000)
-          setWinner("computer")
-          break
-        case "draw":
-          setEndResult("It's a tie")
-          setWinner("tie")
-          break
-        default:
-          console.log("An error has occured")
-          break
-      }
-    }
+    ScoreHandlerFunction(
+      user,
+      comp,
+      increase,
+      decrease,
+      setEndResult,
+      setWinner
+    )
     setGameOver(true)
   }
 
