@@ -41,7 +41,7 @@ const StyledHeader = styled.div`
 const Header = ({ score }) => {
   return (
     <StyledHeader outline={colors.headerOutline}>
-      <img src="./logo.svg" alt logo />
+      <img src="./logo.svg" alt="logo" />
       <StyledScoreboard score={score} />
     </StyledHeader>
   )
