@@ -17,9 +17,7 @@ const GlobalStyle = createGlobalStyle`
     to {
       opacity: 1;
     }
-  }
-
-  
+  }  
 `
 
 export default GlobalStyle
