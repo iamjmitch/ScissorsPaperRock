@@ -105,14 +105,10 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   const [thinking, setThinking] = useState(true)
   const scale = useContext(ScaleProvider)
 
-  //grabs the users selection and loads all the relavent sprite data into state
+  //grab user seelction and load sprite info into state
   useEffect(() => {
     if (userSelected === "") {
-      for (var i = 0; i < tokenData.length; i++) {
-        if (tokenData[i].name === userSelection) {
-          setUserSelected(tokenData[i])
-        }
-      }
+      setUserSelected(tokenData.find(token => token.name === userSelection))
     }
 
     //will randomly select an object from the token data array as the computers choice
