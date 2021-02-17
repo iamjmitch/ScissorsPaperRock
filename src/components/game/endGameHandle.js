@@ -34,15 +34,7 @@ const StyledDiv = styled.div`
   animation-duration: 0.9s;
   overflow: hidden;
   h5 {
-    @keyframes showResult {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    animation-name: showResult;
+    animation-name: fadeIn;
     animation-duration: 0.2s;
   }
   @media screen and (max-height: 720px) {

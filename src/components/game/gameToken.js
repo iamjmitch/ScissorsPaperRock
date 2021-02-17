@@ -5,15 +5,7 @@ import styled from "styled-components"
 const StyledToken = styled.div`
   z-index: 100;
   transition: 0.5s linear;
-  @keyframes showToken {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  animation-name: showToken;
+  animation-name: fadeIn;
   animation-duration: 0.9s;
   padding: 0 35px;
 `

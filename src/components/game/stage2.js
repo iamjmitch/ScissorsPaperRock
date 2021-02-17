@@ -57,15 +57,7 @@ const UserSelection = styled.div`
   h3 {
     margin-bottom: 40px;
     text-transform: uppercase;
-    @keyframes showHeading {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    animation-name: showHeading;
+    animation-name: fadeIn;
     animation-duration: 0.9s;
   }
 `
@@ -83,15 +75,7 @@ const ComputerSelection = styled.div`
   h3 {
     margin-bottom: 40px;
     text-transform: uppercase;
-    @keyframes showHeading {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    animation-name: showHeading;
+    animation-name: fadeIn;
     animation-duration: 0.9s;
   }
 `

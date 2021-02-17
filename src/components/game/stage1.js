@@ -50,15 +50,7 @@ const StyledTriangleSpan = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  @keyframes showTriangle {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  animation-name: showTriangle;
+  animation-name: fadeIn;
   animation-duration: 0.9s;
 `
 const TokenContainerTop = styled.div`

@@ -10,6 +10,15 @@ const GlobalStyle = createGlobalStyle`
     min-height: 630px;
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   
 `
 

@@ -21,15 +21,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
   margin-top: 15px;
-  @keyframes showButton {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  animation-name: showButton;
+  animation-name: fadeIn;
   animation-duration: 0.2s;
   @media screen and (max-height: 620px) {
     height: auto;
