@@ -105,8 +105,8 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   const [thinking, setThinking] = useState(true)
   const scale = useContext(ScaleProvider)
 
-  //grab user seelction and load sprite info into state
   useEffect(() => {
+    //grab user selection and load sprite info into state
     if (userSelected === "") {
       setUserSelected(tokenData.find(token => token.name === userSelection))
     }
