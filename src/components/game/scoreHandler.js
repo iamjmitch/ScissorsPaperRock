@@ -1,7 +1,7 @@
-//dependancies
+//--dependancies--
 import React from "react"
 
-//functions and data
+//--functions and data --
 import winnerChecker from "./winnerChecker"
 
 const ScoreHandlerFunction = (

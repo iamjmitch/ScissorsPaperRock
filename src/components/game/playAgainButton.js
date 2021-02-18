@@ -1,11 +1,12 @@
-//dependancies
+//--dependancies--
 import React from "react"
 import styled from "styled-components"
 
-//styles
+//--styles--
 import { colors } from "../styles/colors"
 import { typography } from "../styles/typography"
 
+//--styled-components--
 const StyledButton = styled.button`
   height: 50px;
   width: 70%;

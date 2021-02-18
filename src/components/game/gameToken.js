@@ -1,7 +1,12 @@
-//dependancies
+//--dependancies--
 import React from "react"
 import styled from "styled-components"
 
+//--settings--
+const winGlowSettings =
+  " 0px 0px 0px 40px #ffffff04, 0px 0px 0px 80px #ffffff04, 0px 0px 0px 130px #ffffff04;"
+
+//--styled-components--
 const StyledToken = styled.div`
   z-index: 100;
   transition: 0.5s linear;
@@ -9,9 +14,6 @@ const StyledToken = styled.div`
   animation-duration: 0.9s;
   padding: 0 35px;
 `
-const winGlowSettings =
-  " 0px 0px 0px 40px #ffffff04, 0px 0px 0px 80px #ffffff04, 0px 0px 0px 130px #ffffff04;"
-
 const StyledOutter = styled.div`
   display: flex;
   justify-content: center;

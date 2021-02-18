@@ -1,21 +1,22 @@
-//dependancies
+//--dependancies--
 import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
 import ScaleProvider from "../global/contextScreen"
 
-//styles
+//--styles--
 import { typography } from "../styles/typography"
 import { colors } from "../styles/colors"
 
-//components
+//--components--
 import Token from "./gameToken"
 import BlankToken from "./gameTokenBlank"
 import EndGame from "./endGameHandle"
 import ScoreHandlerFunction from "./scoreHandler"
 
-//functions and data
+//--functions and data --
 import { tokenData } from "../data/tokenData"
 
+//--styled-components--
 const StyledGameContainer = styled.div`
   margin: 0 auto;
   color: red;
@@ -81,12 +82,15 @@ const ComputerSelection = styled.div`
 `
 
 const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
+  //--states--
   const [userSelected, setUserSelected] = useState("")
   const [computerSelected, setComputerSelected] = useState("")
   const [endResult, setEndResult] = useState("working")
   const [gameOver, setGameOver] = useState(false)
   const [winner, setWinner] = useState("")
   const [thinking, setThinking] = useState(true)
+
+  //context
   const scale = useContext(ScaleProvider)
 
   useEffect(() => {
@@ -116,8 +120,8 @@ const Stage2 = ({ userSelection, increase, decrease, reset, windowWidth }) => {
   //sends data to score handler for end game processing
   const scoreHandler = (user, comp) => {
     ScoreHandlerFunction(
-      user,
-      comp,
+      userSelected.name,
+      computerSelected.name,
       increase,
       decrease,
       setEndResult,

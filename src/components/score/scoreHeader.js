@@ -1,15 +1,14 @@
-//dependancies
+//--dependancies--
 import React from "react"
 import styled from "styled-components"
 
-//styles
+//--styles--
 import { colors } from "../styles/colors"
 
-//assets
-
-//components
+//--components--
 import StyledScoreboard from "../score/scoreBox"
 
+//--styled-components--
 const StyledHeader = styled.div`
   width: 90%;
   max-width: 800px;

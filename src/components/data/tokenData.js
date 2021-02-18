@@ -1,5 +1,7 @@
+//--styles--
 import { colors } from "../styles/colors"
 
+//--settings--
 const shadowBoxSettings = "0px 10px 0px 0px "
 
 export const tokenData = [

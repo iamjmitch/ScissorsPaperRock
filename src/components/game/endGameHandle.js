@@ -1,14 +1,15 @@
-//dependancies
+//--dependancies--
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
-//styles
+//--styles--
 import { typography } from "../styles/typography"
 import { colors } from "../styles/colors"
 
-//components
+//--components--
 import Button from "./playAgainButton"
 
+//--styled-components--
 const StyledDiv = styled.div`
   width: ${props => (props.windowWidth > 800 ? "30%" : "100%")};
   font-family: ${typography.font};

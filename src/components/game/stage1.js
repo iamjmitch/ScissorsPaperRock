@@ -1,14 +1,15 @@
-//dependancies
+//--dependancies--
 import React, { createRef, useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import ScaleProvider from "../global/contextScreen"
 
-//components
+//--components--
 import Token from "./gameToken"
 
-//functions and data
+//--functions-- and data
 import { tokenData } from "../data/tokenData"
 
+//--styled-components--
 const StyledGameContainer = styled.div`
   color: red;
   align-self: center;
@@ -42,7 +43,6 @@ const StyledGameContainer = styled.div`
     margin-top: 0px;
   }
 `
-
 const StyledTriangleSpan = styled.span`
   position: absolute;
   width: 100%;
@@ -69,6 +69,7 @@ const TokenContainerBottom = styled.div`
   flex-wrap: nowrap;
   justify-content: center;
 `
+
 const Stage1 = ({ handler, loadingHandler }) => {
   const scale = useContext(ScaleProvider)
   return (

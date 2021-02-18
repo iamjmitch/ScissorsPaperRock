@@ -1,15 +1,16 @@
-//dependancies
+//--dependancies--
 import React from "react"
 import styled from "styled-components"
 
-//styles
+//--styles--
 import { colors } from "../styles/colors"
 import { typography } from "../styles/typography"
 
-//assets
+//--assets--
 import RulesImage from "../../images/image-rules.svg"
 import Close from "../../images/icon-close.svg"
 
+//--styled-components--
 const BG = styled.div`
   width: 100vw;
   height: 100vh;
@@ -28,7 +29,6 @@ const BG = styled.div`
   animation-name: showModal;
   animation-duration: 0.5s;
 `
-
 const StyledModal = styled.div`
   background: white;
   position: absolute;

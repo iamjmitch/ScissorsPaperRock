@@ -1,9 +1,8 @@
-//dependancies
+//--dependancies--
 import React from "react"
 import styled from "styled-components"
 
-//styles
-
+//--styled-components--
 const StyledToken = styled.div`
   z-index: 100;
   transition: 0.5s linear;
