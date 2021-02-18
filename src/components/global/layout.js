@@ -1,10 +1,10 @@
-//dependancies
+//--dependancies--
 import React, { useEffect, useState, useContext } from "react"
 import styled from "styled-components"
 import GlobalStyle from "../styles/globalStyles"
 import ScaleProvider from "./contextScreen"
 
-//components
+//--components--
 import Header from "../score/scoreHeader"
 import Button from "../rules/rulesButton"
 import Modal from "../rules/rulesModal"
@@ -12,6 +12,7 @@ import Stage1 from "../game/stage1"
 import Stage2 from "../game/stage2"
 import SEO from "../seo"
 
+//--styled-components--
 const Background = styled.div`
   position: relative;
   background: radial-gradient(
@@ -28,7 +29,6 @@ const Background = styled.div`
     min-height: 630px;
   }
 `
-
 const StyledContainer = styled.div`
   width: 1440px;
   margin: 0 auto;
@@ -42,6 +42,7 @@ const StyledContainer = styled.div`
 `
 
 const Main = props => {
+  //--states--
   //modal popup controller
   const [showModal, setShowModal] = useState(false)
   //score keeper
@@ -57,6 +58,7 @@ const Main = props => {
   //scale
   const [screenScale, setScreenScale] = useState(1)
 
+  //--functions--
   //handles the users selection and save name of their choice to state
   const userSelectionHandler = selection => {
     setUserSelection(selection)
